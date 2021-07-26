@@ -48,14 +48,18 @@ class Employee
     string m_first_name;
     string m_last_name;
     string m_file_data;
+    short m_num_aval_blocks;
 
     bool is_day_of_week(short day_to_test)const;
 
     bool is_avalibility_block_valid(short day, short start, short end)const;
+
+    void update_num_avalibility_blocks();
   public:
     //Constructors and Deconstructors
     Employee(const string last_name, const string first_name);
 
+    short num_aval_blocks() {return m_num_aval_blocks;}
     //Viewing Avalibility
     void view_Avalibility()const;
 
