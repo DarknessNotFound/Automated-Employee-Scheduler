@@ -16,6 +16,9 @@ const short SUNDAY = 6;
 const short MIN_TIME = 0000;
 const short MAX_TIME = 2359;
 
+//is_military_time() checks if the inputed time is valid military time
+//Pre: Any positive integer
+//Post: True if valid.
 bool is_military_time(short time);
 
 //is_day_of_week() checks if a day is valid
