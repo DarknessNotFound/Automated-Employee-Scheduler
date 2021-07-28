@@ -79,7 +79,35 @@ void Employee::view_Avalibility()const
     for(int i = 0; i < 3; i++)
     {
       data_file >> temp;
-      cout << temp << " ";
+      if(!i)
+      {
+        switch(temp)
+        {
+          case MONDAY:
+            cout << "Monday    ";
+            break;
+          case TUESDAY:
+            cout << "Tuesday   ";
+            break;
+          case WEDNESDAY:
+            cout << "Wednesday ";
+            break;
+          case THURSDAY:
+            cout << "Thursday  ";
+            break;
+          case FRIDAY:
+            cout << "Friday    ";
+            break;
+          case SATURDAY:
+            cout << "Saturday  ";
+            break;
+          case SUNDAY:
+            cout << "Sunday    ";
+            break;
+        }
+      }
+      else
+        cout << temp << " ";
     }
     cout << endl;
   }
