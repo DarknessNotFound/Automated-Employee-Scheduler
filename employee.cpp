@@ -72,7 +72,7 @@ Employee::Employee(const string last_name, const string first_name):
 void Employee::view_Avalibility()const
 {
   ifstream data_file;
-  data_file.open("m_file_data");
+  data_file.open(m_file_data);
   short temp;
   for(int i = 0; i < m_num_aval_blocks; i++)
   {
