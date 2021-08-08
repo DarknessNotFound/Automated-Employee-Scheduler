@@ -5,7 +5,7 @@
 string day_id_to_text(const short day_of_week_id)
 {
   string text = ""; //the text to be returned
-  switch(temp)
+  switch(day_of_week_id)
   {
     case MONDAY:
       text = "Monday";
@@ -34,6 +34,7 @@ string day_id_to_text(const short day_of_week_id)
 
 ostream& operator << (ostream & os, const Timeblock& tb)
 {
-  os << tb.m_start_time << " to " << tb.m_end_time;
+  os << day_id_to_text(tb.m_day_of_week) << ", " << tb.m_start_time << " to "
+     << tb.m_end_time;
   return os;
 }
