@@ -2,8 +2,8 @@
 using namespace std;
 
 #include "constants.h"
+#include "time_block.h"
 #include "employee.h"
-
 int main()
 {
   Employee Jim("Jimmy", "Newtron");
@@ -11,5 +11,8 @@ int main()
   //Jim.add_Avalibility_Block(THURSDAY, 500, 12000);
   cout << "Num Avalability Blocks: " << Jim.num_aval_blocks() << endl;
   Jim.view_Avalibility();
+
+  Timeblock gg(1000, 2000, MONDAY);
+  cout << gg;
   return 0;
 }
