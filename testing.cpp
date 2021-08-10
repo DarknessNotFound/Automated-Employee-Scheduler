@@ -2,6 +2,7 @@
 using namespace std;
 
 #include "constants.h"
+#include "helperFunctions.h"
 #include "time_block.h"
 #include "employee.h"
 int main()

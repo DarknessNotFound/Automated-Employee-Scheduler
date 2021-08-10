@@ -1,35 +1,21 @@
 #include<iostream>
 #include "constants.h"
+#include "helperFunctions.h"
 #include "time_block.h"
 
-string day_id_to_text(const short day_of_week_id)
+bool Timeblock::is_valid(short day, short start,
+  short end)const
 {
-  string text = ""; //the text to be returned
-  switch(day_of_week_id)
-  {
-    case MONDAY:
-      text = "Monday";
-      break;
-    case TUESDAY:
-      text = "Tuesday";
-      break;
-    case WEDNESDAY:
-      text = "Wednesday";
-      break;
-    case THURSDAY:
-      text = "Thursday";
-      break;
-    case FRIDAY:
-      text = "Friday";
-      break;
-    case SATURDAY:
-      text = "Saturday";
-      break;
-    case SUNDAY:
-      text = "Sunday";
-      break;
-  }
-  return text;
+  bool is_valid = true;
+  if(!is_day_of_week(day))
+    is_valid = false;
+  if(!is_military_time(start))
+    is_valid = false;
+  if(!is_military_time(end))
+    is_valid = false;
+  if(start > end)
+    is_valid = false;
+  return is_valid;
 }
 
 ostream& operator << (ostream & os, const Timeblock& tb)

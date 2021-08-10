@@ -2,41 +2,8 @@
 #include <fstream>
 #include "constants.h"
 #include "employee.h"
+#include "helperFunctions.h"
 using namespace std;
-
-bool is_military_time(short time)
-{
-  bool is_valid = true;
-  if ( (time % 100) > 59)
-    is_valid = false;
-  if(time < 0 | time > 2359)
-    is_valid = false;
-
-  return is_valid;
-}
-
-bool Employee::is_day_of_week(short day_to_test)const
-{
-  bool is_a_day = true;
-  if (day_to_test < MONDAY | day_to_test > SUNDAY) //Monday is 0, Sunday is 6
-    is_a_day = false;
-  return is_a_day;
-}
-
-bool Employee::is_avalibility_block_valid(short day, short start,
-  short end)const
-{
-  bool is_valid = true;
-  if(!is_day_of_week(day))
-    is_valid = false;
-  if(!is_military_time(start))
-    is_valid = false;
-  if(!is_military_time(end))
-    is_valid = false;
-  if(start > end)
-    is_valid = false;
-  return is_valid;
-}
 
 void Employee::update_num_avalibility_blocks() {
   short cur_num_blocks = 0;
@@ -118,7 +85,8 @@ void Employee::view_Avalibility()const
 
 bool Employee::add_Avalibility_Block(short day, short start, short end)
 {
-  bool valid_input = is_avalibility_block_valid(day, start, end);
+  //Eventually will use the time_block class
+  bool valid_input = true;
 
   if (valid_input)
   {

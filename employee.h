@@ -3,15 +3,6 @@
 using namespace std;
 //employee() sets the employee's name and makes the .dat file for the employee.
 
-//is_military_time() checks if the inputed time is valid military time
-//Pre: Any positive integer
-//Post: True if valid.
-bool is_military_time(short time);
-
-//is_day_of_week() checks if a day is valid
-//Pre: None
-//Post: Returns true if the day of the week exists
-
 //is_avalibility_block_valid() checks if an input avalibility block is valid.
 //Pre: Inputs are any integers
 //Post: Returns true if valid.
@@ -37,16 +28,13 @@ class Employee
     string m_file_data;
     short m_num_aval_blocks;
 
-    bool is_day_of_week(short day_to_test)const;
-
-    bool is_avalibility_block_valid(short day, short start, short end)const;
-
     void update_num_avalibility_blocks();
   public:
     //Constructors and Deconstructors
     Employee(const string last_name, const string first_name);
 
     short num_aval_blocks() {return m_num_aval_blocks;}
+
     //Viewing Avalibility
     void view_Avalibility()const;
 
