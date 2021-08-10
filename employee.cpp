@@ -2,6 +2,7 @@
 #include <fstream>
 #include "constants.h"
 #include "employee.h"
+#include "time_block.h"
 #include "helperFunctions.h"
 using namespace std;
 
@@ -29,9 +30,8 @@ Employee::Employee(const string last_name, const string first_name):
 {
   m_file_data = m_last_name + "-" + m_first_name + ".dat";
   ofstream data_file (m_file_data, ios::app);
-  data_file << MONDAY << ' ';  //Add single avalibility block
-  data_file << 800 << ' ';
-  data_file << 1600 << endl;
+  Timeblock starter_time(800, 1600, MONDAY);
+  data_file << starter_time << endl;
   data_file.close();
   m_num_aval_blocks = 0;
   return;

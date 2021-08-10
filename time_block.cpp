@@ -20,7 +20,6 @@ bool Timeblock::is_valid(short day, short start,
 
 ostream& operator << (ostream & os, const Timeblock& tb)
 {
-  os << day_id_to_text(tb.m_day_of_week) << ", " << tb.m_start_time << " to "
-     << tb.m_end_time;
+  os << tb.m_day_of_week << " " << tb.m_start_time << " " << tb.m_end_time;
   return os;
 }
