@@ -13,12 +13,10 @@ void Employee::update_num_avalibility_blocks() {
   data.open(m_file_data);
   while(data >> temp_data)
   {
-    cout << temp_data << endl;
     cur_num_blocks++;
   }
   data.close();
 
-  cout << cur_num_blocks << endl;
   cur_num_blocks /= 3;
   m_num_aval_blocks = cur_num_blocks;
 
@@ -30,7 +28,7 @@ Employee::Employee(const string last_name, const string first_name):
 {
   m_file_data = m_last_name + "-" + m_first_name + ".dat";
   ofstream data_file (m_file_data, ios::app);
-  Timeblock starter_time(800, 1600, MONDAY);
+  Timeblock starter_time(MONDAY, 800, 1600);
   data_file << starter_time << endl;
   data_file.close();
   m_num_aval_blocks = 0;
@@ -85,15 +83,14 @@ void Employee::view_Avalibility()const
 
 bool Employee::add_Avalibility_Block(short day, short start, short end)
 {
+  Timeblock timeblock_to_add(day, start, end);
   //Eventually will use the time_block class
   bool valid_input = true;
 
   if (valid_input)
   {
     ofstream data_file (m_file_data, ios::app);
-    data_file << day << ' ';
-    data_file << start << ' ';
-    data_file << end << endl;
+    data_file << timeblock_to_add << endl;
     data_file.close();
   }
   //reduce_avaliblity_blocks

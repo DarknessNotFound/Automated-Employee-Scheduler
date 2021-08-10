@@ -10,11 +10,11 @@ class Timeblock
     short m_day_of_week;
   public:
     //Constructors / Deconstructors
-    Timeblock(const short start_time, const short end_time, const short day):
-      m_start_time(start_time), m_end_time(end_time), m_day_of_week(day) {};
+    Timeblock(const short day, const short start_time, const short end_time):
+      m_day_of_week(day), m_start_time(start_time), m_end_time(end_time) {};
 
     bool is_valid(short day, short start, short end)const;
-    
+
     friend ostream& operator << (ostream & os, const Timeblock& tb);
 };
 
